@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-center flex-column" style="min-height: 100vh;">
+    <h2 class="fs-3 fw-bold mb-5">Registor</h2>
+
+    <form action="/auth/registor" method="post" class="w-100">
+        <div class="mb-3 w-100">
+            <label for="exampleInputName1" class="form-label">Fullname</label>
+            <input type="text" class="form-control" id="exampleInputName1" name="name" value="<%= req.old.name %>">
+            <span class="d-inline-block text-danger mt-3"><%= req.errors.name %></span>
+        </div>
+
+        <div class="mb-3 w-100">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="<%= req.old.email %>">
+            <span class="d-inline-block text-danger mt-3"><%= req.errors.email %></span>
+        </div>
+
+        <div class="mb-3 w-100">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="<%= req.old.password %>">
+            <span class="d-inline-block text-danger mt-3"><%= req.errors.password %></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">registor</button>
+    </form>
+</div>
