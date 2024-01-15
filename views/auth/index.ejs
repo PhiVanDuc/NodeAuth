@@ -5,4 +5,10 @@
         <a href="auth/login" class="btn btn-primary" style="width: calc((100% / 2) - 15px);">Login</a>
         <a href="auth/registor" class="btn btn-primary" style="width: calc((100% / 2) - 15px);">Registor</a>
     </div>
+
+    <% if (registor) { %>
+        <div class="alert alert-success w-100 mt-3" role="alert">
+            <%= registor %>
+        </div>
+    <% } %>
 </div>

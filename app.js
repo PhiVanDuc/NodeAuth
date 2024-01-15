@@ -17,7 +17,7 @@ var authRotuer = require("./routes/auth");
 var app = express();
 app.use(
   session({
-    secret: "node-login-logout",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true
   })
