@@ -4,8 +4,6 @@ const { Account } = require("../models/index");
 
 module.exports = {
     index: (req, res, next) => {
-        if (req.session.isLoggedIn) return res.redirect("/");
-
         const registor = req.flash("registor")[0];
 
         res.render('auth/index', { 
@@ -14,8 +12,6 @@ module.exports = {
     },
 
     login: (req, res, next) => {
-        if (req.session.isLoggedIn) return res.redirect("/");
-
         const login = req.flash("login")[0];
         const oldData = req.flash("oldData")[0];
 
@@ -61,8 +57,6 @@ module.exports = {
     },
 
     registor: (req, res, next) => {
-        if (req.session.isLoggedIn) return res.redirect("/");
-
         res.render('auth/registor', {
             req,
         });
@@ -101,7 +95,7 @@ module.exports = {
                 });
 
                 req.flash("registor", "Đăng kí tài khoảng thành công!");
-                return res.redirect("/auth");
+                return res.redirect("/auth/login");
             }
             catch(e) {
                 return next(e);
