@@ -6,9 +6,26 @@
   </head>
   <body>
     <h1 class="fw-semibold mb-3 mt-5">Trang chủ</h1>
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center mb-5">
       <p class="fs-6 mb-0">Chào bạn: <%= name %></p>
       <a href="/logout" class="btn btn-secondary ms-3">Đăng xuất</a>
+    </div>
+
+    <div>
+      <% login_info.forEach(element => { %>
+        <div class="d-flex align-items-center justify-content-between mb-4 ">
+          <p><%= element.os_name %></p>
+          <p><%= element.os_version %></p>
+          <p><%= element.token_status ? "active" : "off" %></p>
+          <p><%= element.browser_name %></p>
+          <p><%= element.browser_version %></p>
+          <% if (!element.token_status) { %>
+           <button class="btn btn-danger">Đã đăng xuất</button>
+          <% } else { %>
+           <button class="btn btn-success">Đăng xuất</button>
+          <% } %>
+        </div>
+      <% }) %>
     </div>
   </body>
 </html>

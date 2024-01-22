@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // Thiết lập quan hệ giưa model hiện tại với model khác
+      Account.hasMany(models.Login_Info, {
+        foreignKey: "account_id",
+      })
     }
   }
   Account.init(
@@ -24,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.TEXT,
+      status: DataTypes.BOOLEAN,
     },
     {
       // Options
